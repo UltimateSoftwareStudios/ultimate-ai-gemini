@@ -1,3 +1,4 @@
+console.log("Hi");
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import Base64 from 'base64-js';
 import MarkdownIt from 'markdown-it';
