@@ -1,4 +1,3 @@
-console.log("Hi");
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import Base64 from 'base64-js';
 import MarkdownIt from 'markdown-it';
@@ -8,8 +7,6 @@ import { maybeShowApiKeyBanner } from './gemini-api-banner';
 // 🔥 GET YOUR GEMINI API KEY AT 🔥
 // 🔥 https://makersuite.google.com/app/apikey 🔥
 let API_KEY = 'AIzaSyANquoObxJHOSvsWFQ-yLo15tXfsW8TSVE';
-
-let form = document.querySelector('form');
 let promptInput = document.querySelector('input[name="prompt"]');
 let output = document.querySelector('.output');
 
@@ -18,14 +15,6 @@ form.onsubmit = async (ev) => {
   output.textContent = 'Generating...';
 
   try {
-    let contents = [
-      {
-        role: 'user',
-        parts: [
-          { text: promptInput.value }
-        ]
-      }
-    ];
 
     // Call the gemini-pro-vision model, and get a stream of results
     const genAI = new GoogleGenerativeAI(API_KEY);
@@ -39,7 +28,7 @@ form.onsubmit = async (ev) => {
       ],
     });
 
-    const result = await model.generateContentStream({ contents });
+    const result = await model.generateContentStream(promptInput.textContent);
 
     // Read from the stream and interpret the output as markdown
     let buffer = [];
