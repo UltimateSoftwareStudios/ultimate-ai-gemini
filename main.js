@@ -1,5 +1,5 @@
-import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "/node_modules/@google/generative-ai/";
-import Base64 from 'base64-js';
+import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "/node_modules/@google/generative-ai/dist/generative-ai";
+import Base64 from '/node_modules/base64-js/index';
 import MarkdownIt from 'markdown-it';
 import { maybeShowApiKeyBanner } from './gemini-api-banner';  
 
